@@ -14,56 +14,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Fragment checkPushupFragment=getSupportFragmentManager().findFragmentByTag("PUSHUP_FRAGMENT");
+        Fragment checkPushupFragment=getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
 
-        if(checkPushupFragment!=null && checkPushupFragment.isVisible()){
-
-        }else{
+        if(checkPushupFragment==null || checkPushupFragment instanceof DipsFragment || checkPushupFragment instanceof HandstandFragment){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-            fragmentTransaction.replace(R.id.fragment_placeholder,new PushUpsFragment(),"PUSHUP_FRAGMENT");
+            fragmentTransaction.replace(R.id.fragment_placeholder,new PushUpsFragment());
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }
 
     public void handlerPushup(View view) {
-        Fragment checkPushUpFragment=getSupportFragmentManager().findFragmentByTag("PUSHUP_FRAGMENT");
+        Fragment checkPushupFragment=getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
 
-        if(checkPushUpFragment!=null && checkPushUpFragment.isVisible()){
-
-        }else{
+        if(checkPushupFragment==null || checkPushupFragment instanceof DipsFragment || checkPushupFragment instanceof HandstandFragment){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-            fragmentTransaction.replace(R.id.fragment_placeholder,new PushUpsFragment(),"PUSHUP_FRAGMENT");
+            fragmentTransaction.replace(R.id.fragment_placeholder,new PushUpsFragment());
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }
 
     public void handlerDips(View view) {
-        Fragment checkDipFragment=getSupportFragmentManager().findFragmentByTag("DIP_FRAGMENT");
+        Fragment checkDipFragment=getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
 
-        if(checkDipFragment!=null && checkDipFragment.isVisible()){
-
-        }else{
+        if(checkDipFragment==null || checkDipFragment instanceof PushUpsFragment || checkDipFragment instanceof HandstandFragment){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-            fragmentTransaction.replace(R.id.fragment_placeholder,new DipsFragment(),"DIP_FRAGMENT");
+            fragmentTransaction.replace(R.id.fragment_placeholder,new DipsFragment());
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
     }
 
     public void handlerHandstand(View view) {
-        Fragment checkHandStandFragment=getSupportFragmentManager().findFragmentByTag("HANDSTAND_FRAGMENT");
+        Fragment checkHandStandFragment=getSupportFragmentManager().findFragmentById(R.id.fragment_placeholder);
 
-        if(checkHandStandFragment!=null && checkHandStandFragment.isVisible()){
-
-        }else{
+        if(checkHandStandFragment==null || checkHandStandFragment instanceof PushUpsFragment || checkHandStandFragment instanceof DipsFragment){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(R.anim.enter_from_left,R.anim.exit_from_left,R.anim.enter_from_left,R.anim.exit_from_right);
-            fragmentTransaction.replace(R.id.fragment_placeholder,new HandstandFragment(),"HANDSTAND_FRAGMENT");
+            fragmentTransaction.replace(R.id.fragment_placeholder,new HandstandFragment());
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
